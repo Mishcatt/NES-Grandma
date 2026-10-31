@@ -1,0 +1,5 @@
+{
+  "executable": "cl65",
+  "input": "main.s",
+  "params": "--verbose -C unrom256.cfg -o step-grandma.nes"
+}
