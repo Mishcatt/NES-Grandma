@@ -255,7 +255,7 @@ main_loop:
     txa
     sta loadBank,x
     inx
-    nop
+    jsr delayBank
     jmp playMusicFast
 
     playMusic:
@@ -281,17 +281,21 @@ delay:
     beq delayLong
     dec nmiflag
     bit PPUSTATUS ; reset PPUSCROLL/PPUADDR toggle
+    lda xscroll
+    bne noNametableSwap
+        lda softPPUCTRL ; 3 cycle
+        eor #%00000001  ; 2 cycle
+        sta PPUCTRL     ; 4 cycle
+        sta softPPUCTRL ; 3 cycle = 12 cycles = 6 NOPs
+        dec xscroll
+        lda xscroll
+        sta PPUSCROLL
+        jmp delayNametable
+    noNametableSwap:
     dec xscroll
     lda xscroll
     sta PPUSCROLL
-    beq swapNametable
     jmp delayScroll
-swapNametable:
-    lda softPPUCTRL ; 3 cycle
-    eor #%00000001  ; 2 cycle
-    sta PPUCTRL     ; 4 cycle
-    sta softPPUCTRL ; 3 cycle = 12 cycles = 6 NOPs
-    jmp delayNametable
 delayLong:
     nop
     nop
@@ -312,11 +316,14 @@ delaySmall:
     nop
     nop
     nop
+delayBank:
     nop
     nop
     nop
     nop
-delayScroll:
+    nop
+    nop
+delayScroll: 
     nop
     nop
     nop
@@ -324,8 +331,6 @@ delayScroll:
     nop
     nop
 delayNametable:
-    nop
-    nop
     nop
     nop
     nop
