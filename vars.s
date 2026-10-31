@@ -35,5 +35,5 @@
     split2bank:     .res 1
     nmibank:        .res 1
 
-    delayVar1:    .res 1
-    delayVar2:    .res 1
+    dataAddr1:    .res 1
+    dataAddr2:    .res 1

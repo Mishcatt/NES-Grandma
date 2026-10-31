@@ -246,425 +246,59 @@ enable_rendering:
 ldx #0
 ldy #0
 main_loop:
-    cpy #15
+    lda #$80
+    sta dataAddr2
+    cpx #15
     bne :+
-        ldy #0
+        ldx #0
     :
-    tya
-    sta loadBank,y
-    iny
+    txa
+    sta loadBank,x
+    inx
+    nop
+    jmp playMusicFast
 
-    part1:
-        lda $8000,x
-        sta $4011
-        jsr delay
-        inx
-        bne part1
-    part2:
-        lda $8100,x
-        sta $4011
-        jsr delay
-        inx
-        bne part2
-    part3:
-        lda $8200,x
-        sta $4011
-        jsr delay
-        inx
-        bne part3
-    part4:
-        lda $8300,x
-        sta $4011
-        jsr delay
-        inx
-        bne part4
-    part5:
-        lda $8400,x
-        sta $4011
-        jsr delay
-        inx
-        bne part5
-    part6:
-        lda $8500,x
-        sta $4011
-        jsr delay
-        inx
-        bne part6
-    part7:
-        lda $8600,x
-        sta $4011
-        jsr delay
-        inx
-        bne part7
-    part8:
-        lda $8700,x
-        sta $4011
-        jsr delay
-        inx
-        bne part8
-    part9:
-        lda $8800,x
-        sta $4011
-        jsr delay
-        inx
-        bne part9
-    part10:
-        lda $8900,x
-        sta $4011
-        jsr delay
-        inx
-        bne part10
-    part11:
-        lda $8A00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part11
-    part12:
-        lda $8B00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part12
-        jmp part13
-        bit $00
-        bit $00
-    part13:
-        lda $8C00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part13
-    part14:
-        lda $8D00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part14
-    part15:
-        lda $8E00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part15
-    part16:
-        lda $8F00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part16
-    part17:
-        lda $9000,x
-        sta $4011
-        jsr delay
-        inx
-        bne part17
-    part18:
-        lda $9100,x
-        sta $4011
-        jsr delay
-        inx
-        bne part18
-    part19:
-        lda $9200,x
-        sta $4011
-        jsr delay
-        inx
-        bne part19
-    part20:
-        lda $9300,x
-        sta $4011
-        jsr delay
-        inx
-        bne part20
-    part21:
-        lda $9400,x
-        sta $4011
-        jsr delay
-        inx
-        bne part21
-    part22:
-        lda $9500,x
-        sta $4011
-        jsr delay
-        inx
-        bne part22
-    part23:
-        lda $9600,x
-        sta $4011
-        jsr delay
-        inx
-        bne part23
-    part24:
-        lda $9700,x
-        sta $4011
-        jsr delay
-        inx
-        bne part24
-    part25:
-        lda $9800,x
-        sta $4011
-        jsr delay
-        inx
-        bne part25
-    part26:
-        lda $9900,x
-        sta $4011
-        jsr delay
-        inx
-        bne part26
-    part27:
-        lda $9A00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part27
-    part28:
-        lda $9B00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part28
-    part29:
-        lda $9C00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part29
-    part30:
-        lda $9D00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part30
-    part31:
-        lda $9E00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part31
-    part32:
-        lda $9F00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part32
-    part33:
-        lda $A000,x
-        sta $4011
-        jsr delay
-        inx
-        bne part33
-        jmp part34
-        nop
-    part34:
-        lda $A100,x
-        sta $4011
-        jsr delay
-        inx
-        bne part34
-    part35:
-        lda $A200,x
-        sta $4011
-        jsr delay
-        inx
-        bne part35
-    part36:
-        lda $A300,x
-        sta $4011
-        jsr delay
-        inx
-        bne part36
-    part37:
-        lda $A400,x
-        sta $4011
-        jsr delay
-        inx
-        bne part37
-    part38:
-        lda $A500,x
-        sta $4011
-        jsr delay
-        inx
-        bne part38
-    part39:
-        lda $A600,x
-        sta $4011
-        jsr delay
-        inx
-        bne part39
-    part40:
-        lda $A700,x
-        sta $4011
-        jsr delay
-        inx
-        bne part40
-    part41:
-        lda $A800,x
-        sta $4011
-        jsr delay
-        inx
-        bne part41
-    part42:
-        lda $A900,x
-        sta $4011
-        jsr delay
-        inx
-        bne part42
-    part43:
-        lda $AA00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part43
-    part44:
-        lda $AB00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part44
-    part45:
-        lda $AC00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part45
-    part46:
-        lda $AD00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part46
-    part47:
-        lda $AE00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part47
-    part48:
-        lda $AF00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part48
-    part49:
-        lda $B000,x
-        sta $4011
-        jsr delay
-        inx
-        bne part49
-    part50:
-        lda $B100,x
-        sta $4011
-        jsr delay
-        inx
-        bne part50
-    part51:
-        lda $B200,x
-        sta $4011
-        jsr delay
-        inx
-        bne part51
-    part52:
-        lda $B300,x
-        sta $4011
-        jsr delay
-        inx
-        bne part52
-    part53:
-        lda $B400,x
-        sta $4011
-        jsr delay
-        inx
-        bne part53
-    part54:
-        lda $B500,x
-        sta $4011
-        jsr delay
-        inx
-        bne part54
-        jmp part55
-        nop
-    part55:
-        lda $B600,x
-        sta $4011
-        jsr delay
-        inx
-        bne part55
-    part56:
-        lda $B700,x
-        sta $4011
-        jsr delay
-        inx
-        bne part56
-    part57:
-        lda $B800,x
-        sta $4011
-        jsr delay
-        inx
-        bne part57
-    part58:
-        lda $B900,x
-        sta $4011
-        jsr delay
-        inx
-        bne part58
-    part59:
-        lda $BA00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part59
-    part60:
-        lda $BB00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part60
-    part61:
-        lda $BC00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part61
-    part62:
-        lda $BD00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part62
-    part63:
-        lda $BE00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part63
-    part64:
-        lda $BF00,x
-        sta $4011
-        jsr delay
-        inx
-        bne part64
-
-    jmp main_loop
+    playMusic:
+        jsr delay
+    playMusicFast:
+        lda (dataAddr1),y
+        sta $4011
+        iny
+        bne playMusic
+    inc dataAddr2
+    lda dataAddr2
+    cmp #$C0
+    bne :+
+        lda #$80
+        sta dataAddr2
+        jmp main_loop
+    :
+    jsr delaySmall
+    jmp playMusicFast
 
 delay:
     lda nmiflag
-    beq delaynop
+    beq delayLong
     dec nmiflag
     bit PPUSTATUS ; reset PPUSCROLL/PPUADDR toggle
-    inc xscroll
+    dec xscroll
     lda xscroll
     sta PPUSCROLL
     beq swapNametable
-    rts
+    jmp delayScroll
 swapNametable:
-    lda softPPUCTRL
-    eor #%00000001
-    sta PPUCTRL
-    sta softPPUCTRL
-    rts
-delaynop:
+    lda softPPUCTRL ; 3 cycle
+    eor #%00000001  ; 2 cycle
+    sta PPUCTRL     ; 4 cycle
+    sta softPPUCTRL ; 3 cycle = 12 cycles = 6 NOPs
+    jmp delayNametable
+delayLong:
+    nop
+    nop
+    nop
+    nop
+    nop
+delaySmall:
     nop
     nop
     nop
@@ -682,6 +316,14 @@ delaynop:
     nop
     nop
     nop
+delayScroll:
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+delayNametable:
     nop
     nop
     nop
@@ -695,17 +337,6 @@ delaynop:
     nop
     nop
     nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    bit $00
     rts
 
 nmi:
